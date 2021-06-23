@@ -1,0 +1,29 @@
+{
+	"name"        : "themehybrid/hybrid-template-manager",
+	"description" : "Custom template registration system for WordPress.",
+	"keywords"    : [ "wordpress" ],
+	"homepage"    : "https://github.com/themehybrid/hybrid-template",
+	"license"     : "GPL-2.0-or-later",
+	"authors"     : [
+		{
+			"name"     : "Justin Tadlock",
+			"email"    : "justintadlock@gmail.com",
+			"homepage" : "https://themehybrid.com",
+			"role"     : "Developer"
+		}
+	],
+	"support"     : {
+		"issues" : "https://github.com/themehybrid/hybrid-template-manager/issues",
+		"forum"  : "https://themehybrid.com/board/forums/hybrid-core"
+	},
+	"autoload"    : {
+		"psr-4" : {
+			"Hybrid\\Template\\Manager\\" : "src/"
+		}
+	},
+	"require"     : {
+		"php"                          : ">=5.6",
+		"themehybrid/hybrid-contracts" : "dev-master",
+		"themehybrid/hybrid-tools"     : "dev-master"
+	}
+}
