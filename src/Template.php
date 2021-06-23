@@ -16,7 +16,7 @@
 
 namespace Hybrid\Template\Manager;
 
-use Hybrid\Template\Contracts\Template as TemplateContract;
+use Hybrid\Template\Manager\Contracts\Template as TemplateContract;
 
 /**
  * Creates a new object template.
