@@ -73,7 +73,6 @@ class Template implements TemplateContract {
 	 * @return string
 	 */
 	public function __toString() {
-
 		return $this->filename();
 	}
 
@@ -111,7 +110,6 @@ class Template implements TemplateContract {
 	 * @return string
 	 */
 	public function filename() {
-
 		return $this->filename;
 	}
 
@@ -123,7 +121,6 @@ class Template implements TemplateContract {
 	 * @return string
 	 */
 	public function label() {
-
 		return $this->label;
 	}
 
@@ -132,10 +129,10 @@ class Template implements TemplateContract {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @param  string  $type
 	 * @return bool
 	 */
 	public function isType( $type ) {
-
 		return $type === $this->type;
 	}
 
@@ -144,10 +141,10 @@ class Template implements TemplateContract {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @param  string  $subtype
 	 * @return bool
 	 */
 	public function hasSubtype( $subtype ) {
-
 		return ! $this->subtype || in_array( $subtype, (array) $this->subtype );
 	}
 
@@ -156,10 +153,10 @@ class Template implements TemplateContract {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @param  string  $type
 	 * @return bool
 	 */
 	public function forPostType( $type ) {
-
 		return $this->isType( 'post' ) && $this->hasSubtype( $type );
 	}
 }

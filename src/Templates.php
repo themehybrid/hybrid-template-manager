@@ -35,7 +35,6 @@ class Templates extends Collection {
 	 * @return void
 	 */
 	 public function add( $name, $value ) {
-
 		parent::add( $name, new Template( $name, $value ) );
 	}
 }

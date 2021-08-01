@@ -42,7 +42,6 @@ class Component implements Bootable {
 	 * @return void
 	 */
 	public function __construct( Templates $templates ) {
-
 		$this->templates = $templates;
 	}
 
@@ -75,9 +74,6 @@ class Component implements Bootable {
 	 */
 	public function register() {
 		do_action( 'hybrid/template/manager/register', $this->templates );
-
-		// @deprecated 1.0.0
-		do_action( 'hybrid/templates/register', $this->templates );
 	}
 
 	/**
@@ -98,9 +94,7 @@ class Component implements Bootable {
 	public function postTemplates( $templates, $theme, $post, $post_type ) {
 
 		foreach ( $this->templates->all() as $template ) {
-
 			if ( $template->forPostType( $post_type ) ) {
-
 				$templates[ $template->filename() ] = esc_html( $template->label() );
 			}
 		}
