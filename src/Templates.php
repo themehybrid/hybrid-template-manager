@@ -22,20 +22,23 @@ use Hybrid\Tools\Collection;
  * Template collection class.
  *
  * @since  1.0.0
+ *
  * @access public
  */
 class Templates extends Collection {
 
-	/**
-	 * Add a new template.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @param  string  $name
-	 * @param  mixed   $value
-	 * @return void
-	 */
-	 public function add( $name, $value ) {
-		parent::add( $name, new Template( $name, $value ) );
-	}
+    /**
+     * Add a new template.
+     *
+     * @since  1.0.0
+     * @param  string $name
+     * @param  mixed  $value
+     * @return void
+     *
+     * @access public
+     */
+    public function add( $name, $value ) {
+        parent::add( $name, new Template( $name, $value ) );
+    }
+
 }

@@ -21,29 +21,33 @@ use Hybrid\Core\ServiceProvider;
  * Object templates provider class.
  *
  * @since  1.0.0
+ *
  * @access public
  */
 class Provider extends ServiceProvider {
 
-	/**
-	 * Registers the templates collection and manager.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function register() {
-		$this->app->singleton( Component::class );
-	}
+    /**
+     * Registers the templates collection and manager.
+     *
+     * @since  1.0.0
+     * @return void
+     *
+     * @access public
+     */
+    public function register() {
+        $this->app->singleton( Component::class );
+    }
 
-	/**
-	 * Boots the manager by firing its hooks in the `boot()` method.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function boot() {
-		$this->app->resolve( Component::class )->boot();
-	}
+    /**
+     * Boots the manager by firing its hooks in the `boot()` method.
+     *
+     * @since  1.0.0
+     * @return void
+     *
+     * @access public
+     */
+    public function boot() {
+        $this->app->resolve( Component::class )->boot();
+    }
+
 }
