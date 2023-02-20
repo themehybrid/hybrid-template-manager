@@ -32,13 +32,34 @@ class Templates extends Collection {
      *
      * @since  1.0.0
      * @param  string $name
-     * @param  mixed  $value
+     * @param  mixed  $value Deprecated: This parameter will be removed in a future release.
      * @return void
+     * @deprecated Use put() instead.
      *
      * @access public
      */
-    public function add( $name, $value ) {
-        parent::add( $name, new Template( $name, $value ) );
+    public function add( $name, $value = null ) {
+        @trigger_error( __METHOD__ . '() is deprecated, use Templates::put().', E_USER_DEPRECATED );
+
+        self::put( $name, $value );
+    }
+
+    /**
+     * Put a new template into templates collection.
+     *
+     * @since 1.0.1
+     * @param  string $name
+     * @param  mixed  $value
+     * @return void
+     */
+    public function put( $name, $value = null ) {
+        // If we are using `hybrid-tools` v2+
+        // utilize `put()` method.
+        if ( method_exists( 'Hybrid\Tools\Collection', 'put' ) ) {
+            parent::put( $name, new Template( $name, $value ) );
+        } else {
+            parent::add( $name, new Template( $name, $value ) );
+        }
     }
 
 }
