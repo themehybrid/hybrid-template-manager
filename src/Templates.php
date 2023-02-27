@@ -6,10 +6,11 @@
  * specific type of data.  Essentially, we make sure that anything added to the
  * collection is in fact a `Template`.
  *
- * @package   HybridCore
- * @author    Justin Tadlock <justintadlock@gmail.com>
- * @copyright Copyright (c) 2008 - 2021, Justin Tadlock
- * @link      https://themehybrid.com/hybrid-core
+ * @package   HybridTemplateManager
+ * @link      https://github.com/themehybrid/hybrid-template-manager
+ *
+ * @author    Theme Hybrid
+ * @copyright Copyright (c) 2008 - 2023, Theme Hybrid
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
@@ -21,20 +22,44 @@ use Hybrid\Tools\Collection;
  * Template collection class.
  *
  * @since  1.0.0
+ *
  * @access public
  */
 class Templates extends Collection {
 
-	/**
-	 * Add a new template.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @param  string  $name
-	 * @param  mixed   $value
-	 * @return void
-	 */
-	 public function add( $name, $value ) {
-		parent::add( $name, new Template( $name, $value ) );
-	}
+    /**
+     * Add a new template.
+     *
+     * @since  1.0.0
+     * @param  string $name
+     * @param  mixed  $value Deprecated: This parameter will be removed in a future release.
+     * @return void
+     * @deprecated Use put() instead.
+     *
+     * @access public
+     */
+    public function add( $name, $value = null ) {
+        @trigger_error( __METHOD__ . '() is deprecated, use Templates::put().', E_USER_DEPRECATED );
+
+        self::put( $name, $value );
+    }
+
+    /**
+     * Put a new template into templates collection.
+     *
+     * @since 1.0.1
+     * @param  string $name
+     * @param  mixed  $value
+     * @return void
+     */
+    public function put( $name, $value = null ) {
+        // If we are using `hybrid-tools` v2+
+        // utilize `put()` method.
+        if ( method_exists( 'Hybrid\Tools\Collection', 'put' ) ) {
+            parent::put( $name, new Template( $name, $value ) );
+        } else {
+            parent::add( $name, new Template( $name, $value ) );
+        }
+    }
+
 }
