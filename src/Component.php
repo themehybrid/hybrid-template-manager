@@ -40,7 +40,6 @@ class Component implements Bootable {
      * Sets the initial templates collection.
      *
      * @since  1.0.0
-     * @param \Hybrid\Template\Manager\Templates $templates
      * @return void
      *
      * @access public
