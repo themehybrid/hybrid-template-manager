@@ -24,9 +24,14 @@
 		"themehybrid/hybrid-core": "^6.0 || ^7.0",
 		"themehybrid/hybrid-tools": "^1.0 || ^2.0"
 	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
 	"autoload": {
 		"psr-4": {
 			"Hybrid\\Template\\Manager\\": "src/"
 		}
+	},
+	"config": {
+		"sort-packages": true
 	}
 }
