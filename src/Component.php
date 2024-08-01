@@ -9,7 +9,7 @@
  * @link      https://github.com/themehybrid/hybrid-template-manager
  *
  * @author    Theme Hybrid
- * @copyright Copyright (c) 2008 - 2023, Theme Hybrid
+ * @copyright Copyright (c) 2008 - 2024, Theme Hybrid
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
@@ -19,30 +19,20 @@ use Hybrid\Contracts\Bootable;
 
 /**
  * Template component class.
- *
- * @since  1.0.0
- *
- * @access public
  */
 class Component implements Bootable {
 
     /**
      * Templates collection.
      *
-     * @since  1.0.0
      * @var \Hybrid\Template\Manager\Templates
-     *
-     * @access protected
      */
     protected $templates;
 
     /**
      * Sets the initial templates collection.
      *
-     * @since  1.0.0
      * @return void
-     *
-     * @access public
      */
     public function __construct( Templates $templates ) {
         $this->templates = $templates;
@@ -51,10 +41,7 @@ class Component implements Bootable {
     /**
      * Sets up the templates manager actions and filters.
      *
-     * @since  1.0.0
      * @return void
-     *
-     * @access public
      */
     public function boot() {
 
@@ -72,10 +59,7 @@ class Component implements Bootable {
      * Note that this method is `public` because of WP's hook callback
      * system. See the implemented contract for publicly-available methods.
      *
-     * @since  1.0.0
      * @return void
-     *
-     * @access public
      */
     public function register() {
         do_action( 'hybrid/template/manager/register', $this->templates );
@@ -88,14 +72,11 @@ class Component implements Bootable {
      * Note that this method is `public` because of WP's hook callback
      * system. See the implemented contract for publicly-available methods.
      *
-     * @since  1.0.0
-     * @param  array  $templates
-     * @param  object $theme
-     * @param  object $post
-     * @param  string $post_type
+     * @param array  $templates
+     * @param object $theme
+     * @param object $post
+     * @param string $post_type
      * @return array
-     *
-     * @access public
      */
     public function postTemplates( $templates, $theme, $post, $post_type ) {
 
