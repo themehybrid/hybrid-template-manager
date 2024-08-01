@@ -20,23 +20,16 @@ use Hybrid\Tools\Collection;
 
 /**
  * Template collection class.
- *
- * @since  1.0.0
- *
- * @access public
  */
 class Templates extends Collection {
 
     /**
      * Add a new template.
      *
-     * @since  1.0.0
-     * @param  string $name
-     * @param  mixed  $value Deprecated: This parameter will be removed in a future release.
+     * @param string $name
+     * @param mixed  $value Deprecated: This parameter will be removed in a future release.
      * @return void
      * @deprecated Use put() instead.
-     *
-     * @access public
      */
     public function add( $name, $value = null ) {
         @trigger_error( __METHOD__ . '() is deprecated, use Templates::put().', E_USER_DEPRECATED );
@@ -47,9 +40,8 @@ class Templates extends Collection {
     /**
      * Put a new template into templates collection.
      *
-     * @since 1.0.1
-     * @param  string $name
-     * @param  mixed  $value
+     * @param string $name
+     * @param mixed  $value
      * @return void
      */
     public function put( $name, $value = null ) {

@@ -20,10 +20,6 @@ use Hybrid\Template\Manager\Contracts\Template as TemplateContract;
 
 /**
  * Creates a new object template.
- *
- * @since  1.0.0
- *
- * @access public
  */
 class Template implements TemplateContract {
 
@@ -32,40 +28,28 @@ class Template implements TemplateContract {
      * but theme authors can extend this to term or user templates, for
      * example.
      *
-     * @since  1.0.0
-     * @var    string
-     *
-     * @access protected
+     * @var string
      */
     protected $type = 'post';
 
     /**
      * Array of subtypes template works with.
      *
-     * @since  1.0.0
-     * @var    array
-     *
-     * @access protected
+     * @var array
      */
     protected $subtype = [];
 
     /**
      * Filename of the template.
      *
-     * @since  1.0.0
-     * @var    string
-     *
-     * @access protected
+     * @var string
      */
     protected $filename = '';
 
     /**
      * Internationalized text label.
      *
-     * @since  1.0.0
-     * @var    string
-     *
-     * @access protected
+     * @var string
      */
     protected $label = '';
 
@@ -73,10 +57,7 @@ class Template implements TemplateContract {
      * Magic method to use in case someone tries to output the object as a
      * string. We'll just return the name.
      *
-     * @since  1.0.0
      * @return string
-     *
-     * @access public
      */
     public function __toString() {
         return $this->filename();
@@ -85,12 +66,9 @@ class Template implements TemplateContract {
     /**
      * Register a new template object.
      *
-     * @since  1.0.0
-     * @param  string $filename
-     * @param  array  $args
+     * @param string $filename
+     * @param array  $args
      * @return void
-     *
-     * @access public
      */
     public function __construct( $filename, array $args = [] ) {
 
@@ -112,10 +90,7 @@ class Template implements TemplateContract {
     /**
      * Returns the filename relative to the templates location.
      *
-     * @since  1.0.0
      * @return string
-     *
-     * @access public
      */
     public function filename() {
         return $this->filename;
@@ -124,10 +99,7 @@ class Template implements TemplateContract {
     /**
      * Returns the internationalized text label for the template.
      *
-     * @since  1.0.0
      * @return string
-     *
-     * @access public
      */
     public function label() {
         return $this->label;
@@ -136,11 +108,8 @@ class Template implements TemplateContract {
     /**
      * Conditional function to check what type of template this is.
      *
-     * @since  1.0.0
-     * @param  string $type
+     * @param string $type
      * @return bool
-     *
-     * @access public
      */
     public function isType( $type ) {
         return $type === $this->type;
@@ -149,11 +118,8 @@ class Template implements TemplateContract {
     /**
      * Conditional function to check if the template has a specific subtype.
      *
-     * @since  1.0.0
-     * @param  string $subtype
+     * @param string $subtype
      * @return bool
-     *
-     * @access public
      */
     public function hasSubtype( $subtype ) {
         return ! $this->subtype || in_array( $subtype, (array) $this->subtype );
@@ -162,11 +128,8 @@ class Template implements TemplateContract {
     /**
      * Conditional function to check if the template is for a post type.
      *
-     * @since  1.0.0
-     * @param  string $type
+     * @param string $type
      * @return bool
-     *
-     * @access public
      */
     public function forPostType( $type ) {
         return $this->isType( 'post' ) && $this->hasSubtype( $type );
